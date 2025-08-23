@@ -9,14 +9,14 @@ public class Plugin implements ZPELibrary {
 
   @Override
   public Map<String, ZPECustomFunction> getFunctions() {
-    Map<String, ZPECustomFunction> m = new HashMap<>();
-    m.put("query", null);
-    return m;
+    return new HashMap<>();
   }
 
   @Override
   public Map<String, Class<? extends ZPEStructure>> getObjects() {
-    return null;
+    HashMap<String, Class<? extends ZPEStructure>> m = new HashMap<>();
+    m.put("SQLite", ZPESQLite.class);
+    return m;
   }
 
   @Override
