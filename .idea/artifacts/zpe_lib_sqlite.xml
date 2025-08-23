@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="zpe.lib.sqlite">
+    <output-path>$PROJECT_DIR$/build</output-path>
+    <root id="archive" name="zpe.lib.sqlite.jar">
+      <element id="extracted-dir" path="$USER_HOME$/Library/CloudStorage/Dropbox/Programs/JARs/sqlite-jdbc-3.49.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Library/CloudStorage/Dropbox/Programs/ZPE/zpe.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
