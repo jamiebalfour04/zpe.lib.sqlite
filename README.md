@@ -36,6 +36,8 @@
 <h2>Example</h2>
 
 <pre>
+
+import "zpe.lib.sqlite"
   
 db = new SQLite()
 db.open("test.db")
