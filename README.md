@@ -40,16 +40,16 @@
 import "zpe.lib.sqlite"
   
 db = new SQLite()
-db.open("test.db")
+db->open("test.db")
 
-db.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)")
-db.execute("INSERT INTO users (name) VALUES (?)", ["Jamie"])
+db->execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)")
+db->execute("INSERT INTO users (name) VALUES (?)", ["Jamie"])
 
-rows = db.query("SELECT * FROM users")
+rows = db->query("SELECT * FROM users")
 
 print(rows)
 
-db.close()
+db->close()
 </pre>
 
 <h2>Notes</h2>
