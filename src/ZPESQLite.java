@@ -1,4 +1,5 @@
 import jamiebalfour.generic.JBBinarySearchTree;
+import jamiebalfour.zpe.core.YASSByteCodes;
 import jamiebalfour.zpe.core.ZPEObject;
 import jamiebalfour.zpe.core.ZPERuntimeEnvironment;
 import jamiebalfour.zpe.core.ZPEStructure;
@@ -178,6 +179,11 @@ public class ZPESQLite extends ZPEStructure {
     public String getName() {
       return "open";
     }
+
+    @Override
+    public byte[] returnTypes() {
+      return new byte[]{YASSByteCodes.BOOLEAN_TYPE};
+    }
   }
 
   public class close_Command implements ZPEObjectNativeMethod {
@@ -205,6 +211,11 @@ public class ZPESQLite extends ZPEStructure {
     public String getName() {
       return "close";
     }
+
+    @Override
+    public byte[] returnTypes() {
+      return new byte[]{YASSByteCodes.BOOLEAN_TYPE};
+    }
   }
 
   public class is_open_Command implements ZPEObjectNativeMethod {
@@ -231,6 +242,11 @@ public class ZPESQLite extends ZPEStructure {
     @Override
     public String getName() {
       return "is_open";
+    }
+
+    @Override
+    public byte[] returnTypes() {
+      return new byte[]{YASSByteCodes.BOOLEAN_TYPE};
     }
   }
 
@@ -272,6 +288,11 @@ public class ZPESQLite extends ZPEStructure {
     public String getName() {
       return "execute";
     }
+
+    @Override
+    public byte[] returnTypes() {
+      return new byte[]{YASSByteCodes.NUMBER_TYPE};
+    }
   }
 
   public class query_Command implements ZPEObjectNativeMethod {
@@ -311,6 +332,11 @@ public class ZPESQLite extends ZPEStructure {
     public String getName() {
       return "query";
     }
+
+    @Override
+    public byte[] returnTypes() {
+      return new byte[]{YASSByteCodes.LIST_TYPE};
+    }
   }
 
   public class begin_Command implements ZPEObjectNativeMethod {
@@ -348,6 +374,11 @@ public class ZPESQLite extends ZPEStructure {
     @Override
     public String getName() {
       return "begin";
+    }
+
+    @Override
+    public byte[] returnTypes() {
+      return new byte[]{YASSByteCodes.BOOLEAN_TYPE};
     }
   }
 
@@ -387,6 +418,11 @@ public class ZPESQLite extends ZPEStructure {
     public String getName() {
       return "commit";
     }
+
+    @Override
+    public byte[] returnTypes() {
+      return new byte[]{YASSByteCodes.BOOLEAN_TYPE};
+    }
   }
 
   public class rollback_Command implements ZPEObjectNativeMethod {
@@ -425,6 +461,13 @@ public class ZPESQLite extends ZPEStructure {
     public String getName() {
       return "rollback";
     }
+
+    @Override
+    public byte[] returnTypes() {
+      return new byte[]{YASSByteCodes.BOOLEAN_TYPE};
+    }
+
+
   }
 
   public class last_insert_rowid_Command implements ZPEObjectNativeMethod {
@@ -463,6 +506,11 @@ public class ZPESQLite extends ZPEStructure {
     public String getName() {
       return "last_insert_rowid";
     }
+
+    @Override
+    public byte[] returnTypes() {
+      return new byte[]{YASSByteCodes.NUMBER_TYPE};
+    }
   }
 
   public class get_last_error_Command implements ZPEObjectNativeMethod {
@@ -489,6 +537,11 @@ public class ZPESQLite extends ZPEStructure {
     @Override
     public String getName() {
       return "get_last_error";
+    }
+
+    @Override
+    public byte[] returnTypes() {
+      return new byte[]{YASSByteCodes.STRING_TYPE};
     }
   }
 }
