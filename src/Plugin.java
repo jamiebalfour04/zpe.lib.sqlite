@@ -1,3 +1,4 @@
+import jamiebalfour.zpe.core.ZPEModule;
 import jamiebalfour.zpe.core.ZPEStructure;
 import jamiebalfour.zpe.core.interfaces.ZPECustomFunction;
 import jamiebalfour.zpe.core.interfaces.ZPELibrary;
@@ -17,6 +18,11 @@ public class Plugin implements ZPELibrary {
     HashMap<String, Class<? extends ZPEStructure>> m = new HashMap<>();
     m.put("SQLite", ZPESQLite.class);
     return m;
+  }
+
+  @Override
+  public Map<String, ZPEModule> getModules() {
+    return new HashMap<>();
   }
 
   @Override

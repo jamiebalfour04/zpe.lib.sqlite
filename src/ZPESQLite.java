@@ -11,6 +11,7 @@ import jamiebalfour.zpe.core.types.*;
 import java.sql.*;
 import java.util.Base64;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 public class ZPESQLite extends ZPEStructure {
@@ -155,7 +156,7 @@ public class ZPESQLite extends ZPEStructure {
 
   public class open_Command implements ZPEObjectNativeMethod {
     @Override
-    public ZPEType MainMethod(JBBinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
+    public ZPEType run(HashMap<String, ZPEType> parameters, ZPEObject parent) {
       String path = parameters.get("path").toString();
       return new ZPEBoolean(ensureOpen(path));
     }
@@ -188,7 +189,7 @@ public class ZPESQLite extends ZPEStructure {
 
   public class close_Command implements ZPEObjectNativeMethod {
     @Override
-    public ZPEType MainMethod(JBBinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
+    public ZPEType run(HashMap<String, ZPEType> parameters, ZPEObject parent) {
       return new ZPEBoolean(closeInternal());
     }
 
@@ -220,7 +221,7 @@ public class ZPESQLite extends ZPEStructure {
 
   public class is_open_Command implements ZPEObjectNativeMethod {
     @Override
-    public ZPEType MainMethod(JBBinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
+    public ZPEType run(HashMap<String, ZPEType> parameters, ZPEObject parent) {
       return new ZPEBoolean(isOpen());
     }
 
@@ -252,7 +253,7 @@ public class ZPESQLite extends ZPEStructure {
 
   public class execute_Command implements ZPEObjectNativeMethod {
     @Override
-    public synchronized ZPEType MainMethod(JBBinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
+    public synchronized ZPEType run(HashMap<String, ZPEType> parameters, ZPEObject parent) {
       clearError();
       String sql = parameters.get("sql").toString();
       List<ZPEType> paramsList = Conv.asZpeListOrEmpty(parameters.get("params"));
@@ -297,7 +298,7 @@ public class ZPESQLite extends ZPEStructure {
 
   public class query_Command implements ZPEObjectNativeMethod {
     @Override
-    public synchronized ZPEType MainMethod(JBBinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
+    public synchronized ZPEType run(HashMap<String, ZPEType> parameters, ZPEObject parent) {
       clearError();
       String sql = parameters.get("sql").toString();
       List<ZPEType> paramsList = Conv.asZpeListOrEmpty(parameters.get("params"));
@@ -341,7 +342,7 @@ public class ZPESQLite extends ZPEStructure {
 
   public class begin_Command implements ZPEObjectNativeMethod {
     @Override
-    public synchronized ZPEType MainMethod(JBBinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
+    public synchronized ZPEType run(HashMap<String, ZPEType> parameters, ZPEObject parent) {
       clearError();
       if (!isOpen()) {
         setError(new IllegalStateException("Database not open"));
@@ -384,7 +385,7 @@ public class ZPESQLite extends ZPEStructure {
 
   public class commit_Command implements ZPEObjectNativeMethod {
     @Override
-    public synchronized ZPEType MainMethod(JBBinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
+    public synchronized ZPEType run(HashMap<String, ZPEType> parameters, ZPEObject parent) {
       clearError();
       if (!isOpen()) {
         setError(new IllegalStateException("Database not open"));
@@ -427,7 +428,7 @@ public class ZPESQLite extends ZPEStructure {
 
   public class rollback_Command implements ZPEObjectNativeMethod {
     @Override
-    public synchronized ZPEType MainMethod(JBBinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
+    public synchronized ZPEType run(HashMap<String, ZPEType> parameters, ZPEObject parent) {
       clearError();
       if (!isOpen()) {
         setError(new IllegalStateException("Database not open"));
@@ -472,7 +473,7 @@ public class ZPESQLite extends ZPEStructure {
 
   public class last_insert_rowid_Command implements ZPEObjectNativeMethod {
     @Override
-    public synchronized ZPEType MainMethod(JBBinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
+    public synchronized ZPEType run(HashMap<String, ZPEType> parameters, ZPEObject parent) {
       clearError();
       if (!isOpen()) {
         setError(new IllegalStateException("Database not open"));
@@ -515,7 +516,7 @@ public class ZPESQLite extends ZPEStructure {
 
   public class get_last_error_Command implements ZPEObjectNativeMethod {
     @Override
-    public ZPEType MainMethod(JBBinarySearchTree<String, ZPEType> parameters, ZPEObject parent) {
+    public ZPEType run(HashMap<String, ZPEType> parameters, ZPEObject parent) {
       return new ZPEString(lastError == null ? "" : lastError);
     }
 
