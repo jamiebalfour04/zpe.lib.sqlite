@@ -1,5 +1,5 @@
 <h1>zpe.lib.sqlite</h1>
-
+<div style="background:#a00;color:#ddd;padding:10px;border-radius:7px;">This plugin is now deprecated and integrated into ZPE</div>
 <p>
   This is the official SQLite plugin for ZPE.
 </p>
@@ -38,7 +38,7 @@
 <pre>
 
 import "zpe.lib.sqlite"
-  
+
 db = new SQLite()
 db->open("test.db")
 
