@@ -1,5 +1,6 @@
+> [!WARNING]
+> This project is now deprecated since SQLite is now embedded into ZPE.
 <h1>zpe.lib.sqlite</h1>
-<div style="background:#a00;color:#ddd;padding:10px;border-radius:7px;">This plugin is now deprecated and integrated into ZPE</div>
 <p>
   This is the official SQLite plugin for ZPE.
 </p>
